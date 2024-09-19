@@ -17,10 +17,6 @@ class CargodeConfianca(Funcionario,ABC):
 
 
 class Gerente(CargodeConfianca):
-    def getSalariofinal(self):
-       self.salario+=self.salario*Bonificacao.GERENTE
-       return self.salario
-      
     def __init__(self, nome: str, cpf: str, rg: str, endereco: Endereco, setor: Setor, sexo: Sexo, salario: float, dataNascimento: str, bonificacao: Bonificacao) -> None:
        super().__init__(nome, cpf, rg, endereco, setor, sexo, salario, dataNascimento, bonificacao)
 
@@ -28,6 +24,9 @@ class Gerente(CargodeConfianca):
        return super().__str__()
 
 class Diretor(CargodeConfianca):
+    def getSalariofinal(self):
+       return  self.salario+(self.salario*self.bonificacao.valor)
+      
     def __init__(self, nome: str, cpf: str, rg: str, endereco: Endereco, setor: Setor, sexo: Sexo, salario: float, dataNascimento: str, bonificacao: Bonificacao,premio:float) -> None:
        super().__init__(nome, cpf, rg, endereco, setor, sexo, salario, dataNascimento, bonificacao)
        

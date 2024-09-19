@@ -16,9 +16,9 @@ class Funcionario(ABC):
         self.salario=salario
         self.dataNascimento=dataNascimento
 
-        @abstractmethod
-        def getSalariofinal(self):
-            pass
+    @abstractmethod
+    def getSalariofinal(self):
+        pass
 
     def __str__(self) -> str:
         return (f"\n\t=====DADOS DO FUNCIONÁRIO=======\n\t \n\tNOME: {self.nome}"
