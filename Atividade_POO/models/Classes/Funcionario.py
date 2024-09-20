@@ -37,6 +37,9 @@ class Advogado(Funcionario):
     
     def __str__(self) -> str:
         return (f"{super().__str__()} \n\tOAB:{self.oab}")
+    
+    def getSalariofinal(self):
+        return super().getSalariofinal()
 
 class Motorista(Funcionario):
     def __init__(self, nome: str, cpf: str, rg: str, endereco: Endereco, setor: Setor, sexo: Sexo, salario: float, dataNascimento: str,cnh) -> None:
@@ -45,3 +48,6 @@ class Motorista(Funcionario):
     
     def __str__(self) -> str:
         return (f"{super().__str__()} \n\tCNH:{self.cnh}")
+    
+    def getSalariofinal(self):
+        return super().getSalariofinal()

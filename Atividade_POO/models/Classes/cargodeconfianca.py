@@ -22,15 +22,26 @@ class Gerente(CargodeConfianca):
 
     def __str__(self) -> str:
        return super().__str__()
+    
 
-class Diretor(CargodeConfianca):
     def getSalariofinal(self):
        return  self.salario+(self.salario*self.bonificacao.valor)
-      
-    def __init__(self, nome: str, cpf: str, rg: str, endereco: Endereco, setor: Setor, sexo: Sexo, salario: float, dataNascimento: str, bonificacao: Bonificacao,premio:float) -> None:
+
+class Diretor(CargodeConfianca):
+  
+    def __init__(self, nome: str, cpf: str, rg: str, endereco: Endereco, setor: Setor, sexo: Sexo, salario: float, dataNascimento: str, bonificacao: Bonificacao) -> None:
        super().__init__(nome, cpf, rg, endereco, setor, sexo, salario, dataNascimento, bonificacao)
        
-       self.premio=premio
+       self.premio=0.5
 
+    def getSalariofinal(self):
+       return  self.salario+(self.salario*self.bonificacao.valor) + (self.salario * self.premio)
+    
+    def admitirFuncionario():
+       pass
+    
+    def demitirFuncionario():
+       pass
+    
     def __str__(self) -> str:
        return (f"{super().__str__()} \n\tPremio: {self.premio}")
